@@ -1,10 +1,11 @@
-const express = require('express');
+import express from 'express';
+import { createRating, getBusinessRatings, getTopBusinesses } from '../controllers/ratingController.js';
+import authMiddleware from '../middleware/authMiddleware.js';
+
 const router = express.Router();
-const ratingController = require('../controllers/ratingController');
-const authMiddleware = require('../middleware/authMiddleware');
 
-router.post('/', authMiddleware, ratingController.createRating);
-router.get('/business/:businessId', ratingController.getBusinessRatings);
-router.get('/top-businesses', ratingController.getTopBusinesses);
+router.post('/', authMiddleware, createRating);
+router.get('/business/:businessId', getBusinessRatings);
+router.get('/top-businesses', getTopBusinesses);
 
-module.exports = router;
+export default router;

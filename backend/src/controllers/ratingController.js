@@ -1,7 +1,7 @@
-const Rating = require('../models/Rating');
-const User = require('../models/User');
+import Rating from '../models/Rating.js';
+import User from '../models/User.js';
 
-exports.createRating = async (req, res) => {
+export const createRating = async (req, res) => {
   try {
     const { businessId, rating, comment } = req.body;
     const customerId = req.user.userId;
@@ -27,7 +27,7 @@ exports.createRating = async (req, res) => {
   }
 };
 
-exports.getBusinessRatings = async (req, res) => {
+export const getBusinessRatings = async (req, res) => {
   try {
     const { businessId } = req.params;
     const ratings = await Rating.find({ business: businessId }).populate('customer', 'username');
@@ -37,7 +37,7 @@ exports.getBusinessRatings = async (req, res) => {
   }
 };
 
-exports.getTopBusinesses = async (req, res) => {
+export const getTopBusinesses = async (req, res) => {
   try {
     const topBusinesses = await User.find({ userType: 'business' })
       .sort({ rating: -1, totalRatings: -1 })
