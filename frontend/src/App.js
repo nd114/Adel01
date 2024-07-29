@@ -8,6 +8,9 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import TaskList from './components/TaskList';
+import TopBusinesses from './components/TopBusinesses';
+import RatingForm from './components/RatingForm';
+
 
 function App() {
   // State to manage tasks
@@ -81,6 +84,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/tasks" element={<TaskList />} />
+        <Route path="/top-businesses" element={<TopBusinesses />} />
         <Route path="/rate" element={
           <div className="App">
             <h2>Submit Rating</h2>
