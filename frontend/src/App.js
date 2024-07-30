@@ -40,7 +40,7 @@ function App() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('https://adel01.herokuapp.com/api/ratings', ratingData, {
+      const response = await axios.post(`${endpoint}ratings`, ratingData, {
         headers: {
           'x-auth-token': token,
         },
@@ -58,11 +58,11 @@ function App() {
     const fetchData = async () => {
       try {
         // Fetch tasks
-        const tasksResponse = await axios.get('https://adel01.herokuapp.com/api/tasks');
+        const tasksResponse = await axios.get(`${endpoint}tasks`);
         setTasks(tasksResponse.data);
 
         // Fetch top businesses
-        const topBusinessesResponse = await axios.get('https://adel01.herokuapp.com/api/ratings/top-businesses');
+        const topBusinessesResponse = await axios.get(`${endpoint}ratings/top-businesses`);
         setTopBusinesses(topBusinessesResponse.data);
       } catch (error) {
         console.error('Error fetching data:', error);

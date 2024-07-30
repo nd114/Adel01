@@ -12,7 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app', // Replace with your Vercel deployment URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
+
+
 app.use(express.json());
 
 // MongoDB Connection
