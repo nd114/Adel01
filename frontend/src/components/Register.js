@@ -37,7 +37,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://adel01.herokuapp.com/api/users/register', formData);
+      const response = await axios.post('https://adel01-05807227b763.herokuapp.com/api/users/register', formData);
       console.log(response.data);
       alert('Registration successful!');
     } catch (error) {
