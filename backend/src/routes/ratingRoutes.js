@@ -1,10 +1,10 @@
 import express from 'express';
 import { createRating, getBusinessRatings, getTopBusinesses } from '../controllers/ratingController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
+import auth from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/', authMiddleware, createRating);
+router.post('/', auth, createRating);
 router.get('/business/:businessId', getBusinessRatings);
 router.get('/top-businesses', getTopBusinesses);
 

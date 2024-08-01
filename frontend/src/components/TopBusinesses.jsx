@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getEndpoint } from '../api';
+import api, { getEndpoint } from '../api';
 
 function TopBusinesses() {
   const [topBusinesses, setTopBusinesses] = useState([]);

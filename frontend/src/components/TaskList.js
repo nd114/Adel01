@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api'; //import axios from 'axios';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
@@ -7,7 +7,7 @@ const TaskList = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('https://adel01.herokuapp.com/api/tasks');
+        const response = await api.get(/*(axios.get(*/'https://adel01.herokuapp.com/api/tasks');
         setTasks(response.data);
       } catch (error) {
         console.error('Error fetching tasks:', error);

@@ -1,7 +1,7 @@
 //Adjusted for the dropdown menu
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api'; //import axios from 'axios';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://adel01-05807227b763.herokuapp.com/api/users/register', formData);
+      const response = await api.post(/*axios.post*/'https://adel01-05807227b763.herokuapp.com/api/users/register', formData);
       console.log(response.data);
       alert('Registration successful!');
     } catch (error) {

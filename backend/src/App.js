@@ -4,17 +4,25 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import ratingRoutes from './routes/ratingRoutes.js';
+import serviceRoutes from './routes/serviceRoutes.js';
+import bookingRoutes from './routes/bookingRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+import notificationRoutes from './routes/notificationRoutes.js';
+import searchRoutes from './routes/searchRoutes.js';
+import analyticsRoutes from './routes/analyticsRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 
 // Middleware
 app.use(cors({
-  origin: 'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app', // Replace with your Vercel deployment URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: 'http://localhost:3000',//,'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app'], // Replace with your Vercel deployment URL
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   credentials: true,
 }));
 
@@ -41,9 +49,16 @@ run().catch(console.dir);
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/ratings', ratingRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/messages', messageRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/search', searchRoutes);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/payments', paymentRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Aidel API is running');
+  res.send('Adel API is running');
 });
 
 // Start server

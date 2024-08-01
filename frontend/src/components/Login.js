@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api'; //import axios from 'axios';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://adel01.herokuapp.com/api/users/login', formData);
+      const response = await api.post(/*axios.post*/'https://adel01.herokuapp.com/api/users/login', formData);
       console.log(response.data);
       alert('Login successful!');
     } catch (error) {
