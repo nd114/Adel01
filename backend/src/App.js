@@ -19,12 +19,31 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5050;
 
-// Middleware
+//Middleware for CORS
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app',
+  'https://adel01-05807227b763.herokuapp.com'
+];
+
 app.use(cors({
-  origin: 'http://localhost:3000',//,'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app'], // Replace with your Vercel deployment URL
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Allow requests with no origin (like mobile apps, curl requests)
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   credentials: true,
 }));
+
+/*app.use(cors({
+  origin: 'http://localhost:3000',//,'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app'], // Replace with your Vercel deployment URL
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  credentials: true,
+}));*/
 
 
 app.use(express.json());
