@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5050;
 
 //Middleware for CORS
 const allowedOrigins = [
-  'http://localhost:3000','https://adel01.vercel.app'
+  'http://localhost:3000','https://adel01.vercel.app',
   'https://adel01-182417qr9-nds-projects-f3c7bf77.vercel.app',
   'https://adel01-05807227b763.herokuapp.com'
 ];
