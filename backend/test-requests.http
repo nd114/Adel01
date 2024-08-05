@@ -1,0 +1,23 @@
+### Register a New User
+POST http://localhost:5050/api/users/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "testuser@example.com",
+  "password": "testpassword",
+  "userType": "customer"
+}
+
+### Login User
+POST http://localhost:5050/api/users/login
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "testpassword"
+}
+
+### Fetch User Profile
+GET http://localhost:5050/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmIxMWQxNGU5YzNmY2ZiYTgxMWU4NGUiLCJpYXQiOjE3MjI4ODM0MTYsImV4cCI6MTcyMjg4NzAxNn0.eNRjA4cQF6oZo7wyOqIVnuGUFE2s183PV42SuNe4Lik

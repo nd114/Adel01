@@ -48,6 +48,8 @@ app.use(cors({
 
 app.use(express.json());
 
+mongoose.set('strictQuery', false);
+
 // MongoDB Connection
 const uri = process.env.MONGODB_URI;
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
