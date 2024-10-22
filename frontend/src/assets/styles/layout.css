@@ -1,0 +1,18 @@
+.header, .footer {
+    background-color: var(--primary-purple);
+    color: #fff;
+    padding: 1rem;
+}
+
+.main-content {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.sidebar {
+    background-color: var(--teal);
+    color: #fff;
+    padding: 1rem;
+    height: 100vh;
+    position: fixed;
+}

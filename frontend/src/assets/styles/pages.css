@@ -1,0 +1,21 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.about-page {
+    padding: 2rem;
+    background-color: var(--light-gray);
+}
+
+.contact-page {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.contact-page form {
+    max-width: 600px;
+    margin: 0 auto;
+}
